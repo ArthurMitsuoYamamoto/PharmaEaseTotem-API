@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.PharmaEaseTotem.model.Medicamento;
 import br.com.fiap.PharmaEaseTotem.service.MedicamentoService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("medicamentos")
@@ -50,7 +51,7 @@ public class MedicamentoController {
 
     // Endpoint para cadastrar um novo medicamento
     @PostMapping
-    public ResponseEntity<Medicamento> cadastrarMedicamento(@RequestBody Medicamento medicamento) {
+    public ResponseEntity<Medicamento> cadastrarMedicamento(@RequestBody @Valid Medicamento medicamento) {
         Medicamento novoMedicamento = medicamentoService.cadastrarMedicamento(medicamento);
         return new ResponseEntity<>(novoMedicamento, CREATED);
     }

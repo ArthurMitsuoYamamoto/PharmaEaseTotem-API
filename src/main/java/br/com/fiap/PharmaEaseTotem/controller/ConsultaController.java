@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import br.com.fiap.PharmaEaseTotem.model.Consulta;
 import br.com.fiap.PharmaEaseTotem.service.ConsultaService;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class ConsultaController {
 
     // Endpoint para cadastrar uma nova consulta
     @PostMapping
-    public ResponseEntity<Consulta> cadastrarConsulta(@RequestBody Consulta consulta) {
+    public ResponseEntity<Consulta> cadastrarConsulta(@RequestBody @Valid Consulta consulta) {
         Consulta novaConsulta = consultaService.cadastrarConsulta(consulta);
         return new ResponseEntity<>(novaConsulta, CREATED);
     }

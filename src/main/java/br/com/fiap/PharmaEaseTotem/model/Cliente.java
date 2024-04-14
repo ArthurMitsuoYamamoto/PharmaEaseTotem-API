@@ -4,7 +4,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "clientes")
@@ -12,7 +13,8 @@ public class Cliente {
 
     @Id
     @Column(name = "cpf")
-    @NotNull
+    @NotBlank(message = "cliente.cpf.notblank")
+    @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "cliente.cpf.pattern")
     private String cpf;
 
     @Column(nullable = false)

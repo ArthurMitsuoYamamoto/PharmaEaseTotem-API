@@ -2,6 +2,8 @@ package br.com.fiap.PharmaEaseTotem.model;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.validator.constraints.Range;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+
 
 @Entity
 @Table(name = "consultas")
@@ -30,6 +33,7 @@ public class Consulta {
     private String sintoma;
 
     @Column(nullable = false)
+    @Range(min = 0, max = 5)
     private int nivelSatisfacao;
 
     public Consulta() {

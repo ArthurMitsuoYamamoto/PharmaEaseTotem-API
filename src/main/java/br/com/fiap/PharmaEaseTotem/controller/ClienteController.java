@@ -2,6 +2,8 @@ package br.com.fiap.PharmaEaseTotem.controller;
 
 import br.com.fiap.PharmaEaseTotem.model.Cliente;
 import br.com.fiap.PharmaEaseTotem.service.ClienteService;
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +40,7 @@ public class ClienteController {
 
     // Endpoint para cadastrar um novo cliente
     @PostMapping
-    public ResponseEntity<Cliente> cadastrarCliente(@RequestBody Cliente cliente) {
+    public ResponseEntity<Cliente> cadastrarCliente(@RequestBody @Valid Cliente cliente) {
         // Cadastra o cliente e retorna o cliente cadastrado
         Cliente novoCliente = clienteService.cadastrarCliente(cliente);
         return new ResponseEntity<>(novoCliente, HttpStatus.CREATED);
