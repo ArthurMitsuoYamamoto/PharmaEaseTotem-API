@@ -1,8 +1,12 @@
 # Membros:
 Arthur Mitsuo Yamamoto -> rm551283 -> Responsabilidades (.NET, DEVOPS e IA)
+
 Ramon Cezarino Lopez -> rm551279 -> Responsabilidades (QA e IA)
+
 Luigi Ye -> rm552213 -> Responsabilidades (BANCO DE DADOS)
+
 Enzo Lafer Gallucci -> rm551111 -> Responsabilidades (BANCO DE DADOS)
+
 Daniel dos Santos Araujo Faria -> rm99067 -> Responsabilidades (MOBILE)
 
 ## Link do vídeo:
