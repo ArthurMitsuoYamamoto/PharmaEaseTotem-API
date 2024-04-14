@@ -71,7 +71,7 @@ Cria um novo cliente com os dados enviados no corpo da requisição.
 
 | Campo    | Tipo    | Obrigatório | Descrição                             |
 | -------- | ------- | :---------: | ------------------------------------- |
-| nome     | string  | ✅           | O nome completo do cliente            |
+| nome     | string  | ❌          | O nome completo do cliente            |
 | cpf      | string  | ✅           | O CPF do cliente                     |
 
 #### Exemplo da Requisição
