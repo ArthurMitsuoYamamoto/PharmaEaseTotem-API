@@ -48,7 +48,7 @@ Daniel dos Santos Araujo Faria -> rm99067 -> Responsabilidades Materias -> (MOBI
   - Testes e correções no CRUD de medicamentos.
 
 **Semana 3:**
-- **Ramon**:
+- **Ramon e Arthur Mitsuo Yamamoto**:
   - Revisão de código.
 - **Arthur Mitsuo Yamamoto**:
   - Preparação da documentação técnica e do cronograma.
