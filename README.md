@@ -32,7 +32,7 @@ Daniel dos Santos Araujo Faria -> rm99067 -> Responsabilidades (MOBILE)
 **2. Cronograma de Desenvolvimento:**
 
 **Semana 1:**
-- **Luigi Yer**:
+- **Luigi Ye**:
   - Implementação do CRUD de clientes.
 - **Daniel**:
   - Implementação do CRUD de compras.
