@@ -1,10 +1,12 @@
 package br.com.fiap.PharmaEaseTotem.service;
 
-import br.com.fiap.PharmaEaseTotem.model.Compra;
-import br.com.fiap.PharmaEaseTotem.repository.CompraRepository;
-import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import br.com.fiap.PharmaEaseTotem.model.Compra;
+import br.com.fiap.PharmaEaseTotem.repository.CompraRepository;
 
 @Service
 public class CompraService {

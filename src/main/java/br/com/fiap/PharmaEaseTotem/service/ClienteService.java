@@ -20,29 +20,34 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
-    public Cliente buscarClientePorCpf(String cpf) {
-        Optional<Cliente> clienteOptional = clienteRepository.findById(cpf);
+    public Cliente buscarClientePorId(Long id) {
+        Optional<Cliente> clienteOptional = clienteRepository.findById(id);
         return clienteOptional.orElse(null);
     }
+    
 
     public Cliente cadastrarCliente(Cliente cliente) {
         return clienteRepository.save(cliente);
     }
 
-    public void deletarCliente(String cpf) {
-        clienteRepository.deleteById(cpf);
+    public void deletarCliente(Long id) {
+        clienteRepository.deleteById(id);
     }
 
-    public Cliente atualizarCliente(String cpf, Cliente clienteAtualizado) {
-        Optional<Cliente> clienteExistente = clienteRepository.findById(cpf);
-        if (clienteExistente.isPresent()) {
-            Cliente clienteExistenteObj = clienteExistente.get();
+    public Cliente atualizarCliente(Long id, Cliente clienteAtualizado) {
+        Optional<Cliente> clienteExistenteOptional = clienteRepository.findById(id);
+        if (clienteExistenteOptional.isPresent()) {
+            Cliente clienteExistente = clienteExistenteOptional.get();
             // Atualiza os campos do cliente existente com os valores do cliente atualizado
-            clienteExistenteObj.setNome(clienteAtualizado.getNome());
+            clienteExistente.setNome(clienteAtualizado.getNome());
+            clienteExistente.setCpf(clienteAtualizado.getCpf());
             // Salva o cliente atualizado no banco de dados
-            return clienteRepository.save(clienteExistenteObj);
+            return clienteRepository.save(clienteExistente);
         } else {
             return null;
         }
     }
+    
+    
 }
+

@@ -35,7 +35,7 @@ public class CompraController {
         return ResponseEntity.ok(compras);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<Compra> detalhesCompra(@PathVariable Long id) {
         Optional<Compra> optionalCompra = compraRepository.findById(id);
         return optionalCompra.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -47,7 +47,7 @@ public class CompraController {
         return new ResponseEntity<>(novaCompra, CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("{id}")
     public ResponseEntity<Compra> atualizarCompra(@PathVariable Long id, @RequestBody @Valid Compra compraAtualizada) {
         Optional<Compra> optionalCompra = compraRepository.findById(id);
         if (optionalCompra.isPresent()) {
@@ -62,7 +62,7 @@ public class CompraController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> excluirCompra(@PathVariable Long id) {
         Optional<Compra> optionalCompra = compraRepository.findById(id);
         if (optionalCompra.isPresent()) {

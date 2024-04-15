@@ -38,7 +38,7 @@ public class MedicamentoController {
     }
 
     // Endpoint para obter detalhes de um medicamento por ID
-   @GetMapping("/{id}")
+   @GetMapping("{id}")
    public ResponseEntity<Medicamento> detalhesMedicamento(@PathVariable Long id) {
        Optional<Medicamento> medicamento = medicamentoService.buscarMedicamentoPorId(id);
        if (medicamento.isPresent()) {
@@ -57,7 +57,7 @@ public class MedicamentoController {
     }
 
     // Endpoint para atualizar os dados de um medicamento
-    @PutMapping("/{id}")
+    @PutMapping("{id}")
     public ResponseEntity<Medicamento> atualizarMedicamento(@PathVariable Long id, @RequestBody Medicamento medicamentoAtualizado) {
         Medicamento medicamento = medicamentoService.atualizarMedicamento(id, medicamentoAtualizado);
         if (medicamento != null) {
@@ -68,7 +68,7 @@ public class MedicamentoController {
     }
 
     // Endpoint para remover um medicamento
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> deletarMedicamento(@PathVariable Long id) {
         medicamentoService.deletarMedicamento(id);
         return new ResponseEntity<>(NO_CONTENT);
