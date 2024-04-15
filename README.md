@@ -242,11 +242,13 @@ Altera os dados do cliente especificado no `id`, utilizando as informações env
 
 ---
 
-### Listar Todas as Consultas
+Com base no código fornecido, aqui está a documentação para a entidade `Compra` seguindo a estrutura fornecida:
 
-`GET` /consultas
+### Listar Todas as Compras
 
-Retorna um array com todas as consultas cadastradas.
+`GET` /compras
+
+Retorna um array com todas as compras cadastradas.
 
 #### Exemplo de Resposta
 
@@ -255,9 +257,14 @@ Retorna um array com todas as consultas cadastradas.
     {
         "id": 1,
         "idCliente": 1,
-        "dataHora": "2024-04-12T10:00:00",
-        "sintoma": "Dor de cabeça",
-        "nivelSatisfacao": 4
+        "idRemedio": 1,
+        "dataCompra": "2024-04-15T08:30:00"
+    },
+    {
+        "id": 2,
+        "idCliente": 2,
+        "idRemedio": 2,
+        "dataCompra": "2024-04-15T10:45:00"
     }
 ]
 ```
@@ -266,34 +273,32 @@ Retorna um array com todas as consultas cadastradas.
 
 | Código | Descrição                         |
 | ------ | --------------------------------- |
-| 200    | Os dados das consultas foram retornados com sucesso |
+| 200    | Os dados das compras foram retornados com sucesso |
 | 401    | Acesso negado. Você deve se autenticar |
 
 ---
 
-### Cadastrar Consulta
+### Cadastrar Compra
 
-`POST` /consultas
+`POST` /compras
 
-Cria uma nova consulta com os dados enviados no corpo da requisição.
+Cria uma nova compra com os dados enviados no corpo da requisição.
 
 #### Corpo da Requisição
 
 | Campo         | Tipo    | Obrigatório | Descrição                              |
 | ------------- | ------- | :---------: | -------------------------------------- |
-| idCliente     | integer | ✅           | O ID do cliente relacionado à consulta |
-| dataHora      | string  | ✅           | Data e hora da consulta (formato ISO 8601) |
-| sintoma       | string  | ✅           | O sintoma relatado pelo cliente        |
-| nivelSatisfacao | integer | ✅           | O nível de satisfação da consulta (de 0 a 5) |
+| idCliente     | integer | ✅           | O ID do cliente relacionado à compra   |
+| idRemedio     | integer | ✅           | O ID do remédio relacionado à compra   |
+| dataCompra    | string  | ✅           | Data e hora da compra (formato ISO 8601) |
 
 #### Exemplo da Requisição
 
 ```json
 {
     "idCliente": 1,
-    "dataHora": "2024-04-12T10:00:00",
-    "sintoma": "Dor de cabeça",
-    "nivelSatisfacao": 4
+    "idRemedio": 1,
+    "dataCompra": "2024-04-15T08:30:00"
 }
 ```
 
@@ -301,11 +306,10 @@ Cria uma nova consulta com os dados enviados no corpo da requisição.
 
 ```json
 {
-    "id": 2,
+    "id": 3,
     "idCliente": 1,
-    "dataHora": "2024-04-12T10:00:00",
-    "sintoma": "Dor de cabeça",
-    "nivelSatisfacao": 4
+    "idRemedio": 1,
+    "dataCompra": "2024-04-15T08:30:00"
 }
 ```
 
@@ -313,17 +317,17 @@ Cria uma nova consulta com os dados enviados no corpo da requisição.
 
 | Código | Descrição                         |
 | ------ | --------------------------------- |
-| 201    | Consulta cadastrada com sucesso  |
+| 201    | Compra cadastrada com sucesso    |
 | 400    | Dados enviados são inválidos. Verifique o corpo da requisição |
 | 401    | Acesso negado. Você deve se autenticar |
 
 ---
 
-### Detalhes da Consulta
+### Detalhes da Compra
 
-`GET` /consultas/{id}
+`GET` /compras/{id}
 
-Retorna os detalhes da consulta com o `id` informado como parâmetro de path.
+Retorna os detalhes da compra com o `id` informado como parâmetro de path.
 
 #### Exemplo de Resposta
 
@@ -331,9 +335,8 @@ Retorna os detalhes da consulta com o `id` informado como parâmetro de path.
 {
     "id": 1,
     "idCliente": 1,
-    "dataHora": "2024-04-12T10:00:00",
-    "sintoma": "Dor de cabeça",
-    "nivelSatisfacao": 4
+    "idRemedio": 1,
+    "dataCompra": "2024-04-15T08:30:00"
 }
 ```
 
@@ -341,51 +344,49 @@ Retorna os detalhes da consulta com o `id` informado como parâmetro de path.
 
 | Código | Descrição                         |
 | ------ | --------------------------------- |
-| 200    | Os dados da consulta foram retornados com sucesso |
+| 200    | Os dados da compra foram retornados com sucesso |
 | 401    | Acesso negado. Você deve se autenticar |
-| 404    | Não existe consulta com o `id` informado |
+| 404    | Não existe compra com o `id` informado |
 
 ---
 
-### Apagar Consulta
+### Apagar Compra
 
-`DELETE` /consultas/{id}
+`DELETE` /compras/{id}
 
-Apaga a consulta com o `id` especificado no parâmetro de path.
+Apaga a compra com o `id` especificado no parâmetro de path.
 
 #### Códigos de Status
 
 | Código | Descrição                         |
 | ------ | --------------------------------- |
-| 204    | Consulta foi apagada com sucesso |
+| 204    | Compra foi apagada com sucesso   |
 | 401    | Acesso negado. Você deve se autenticar |
-| 404    | Não existe consulta com o `id` informado |
+| 404    | Não existe compra com o `id` informado |
 
 ---
 
-### Atualizar Consulta
+### Atualizar Compra
 
-`PUT` /consultas/{id}
+`PUT` /compras/{id}
 
-Altera os dados da consulta especificada no `id`, utilizando as informações enviadas no corpo da requisição.
+Altera os dados da compra especificada no `id`, utilizando as informações enviadas no corpo da requisição.
 
 #### Corpo da Requisição
 
 | Campo         | Tipo    | Obrigatório | Descrição                              |
 | ------------- | ------- | :---------: | -------------------------------------- |
-| idCliente     | integer | ✅           | O ID do cliente relacionado à consulta |
-| dataHora      | string  | ✅           | Data e hora da consulta (formato ISO 8601) |
-| sintoma       | string  | ✅           | O sintoma relatado pelo cliente        |
-| nivelSatisfacao | integer | ✅           | O nível de satisfação da consulta (de 0 a 5) |
+| idCliente     | integer | ✅           | O ID do cliente relacionado à compra   |
+| idRemedio     | integer | ✅           | O ID do remédio relacionado à compra   |
+| dataCompra    | string  | ✅           | Data e hora da compra (formato ISO 8601) |
 
 #### Exemplo da Requisição
 
 ```json
 {
     "idCliente": 1,
-    "dataHora": "2024-04-12T10:00:00",
-    "sintoma": "Dor de cabeça",
-    "nivelSatisfacao": 4
+    "idRemedio": 1,
+    "dataCompra": "2024-04-15T08:30:00"
 }
 ```
 
@@ -393,10 +394,10 @@ Altera os dados da consulta especificada no `id`, utilizando as informações en
 
 | Código | Descrição                         |
 | ------ | --------------------------------- |
-| 200    | Consulta alterada com sucesso     |
+| 200    | Compra alterada com sucesso      |
 | 400    | Dados enviados são inválidos. Verifique o corpo da requisição |
 | 401    | Acesso negado. Você deve se autenticar |
-| 404    | Não existe consulta com o `id` informado |
+| 404    | Não existe compra com o `id` informado |
 
 ---
 
