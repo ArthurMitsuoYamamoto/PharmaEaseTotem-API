@@ -1,5 +1,7 @@
 package br.com.fiap.PharmaEaseTotem.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -24,12 +26,12 @@ public class Compra {
 
     @Column(name = "data_compra")
     @NotBlank(message = "compra.dataCompra.notblank")
-    private String dataCompra;
+    private LocalDateTime dataCompra;
 
     public Compra() {
     }
 
-    public Compra(Long id, Long idCliente, Long idRemedio, String dataCompra) {
+    public Compra(Long id, Long idCliente, Long idRemedio, @NotBlank(message = "compra.dataCompra.notblank") LocalDateTime dataCompra) {
         this.id = id;
         this.idCliente = idCliente;
         this.idRemedio = idRemedio;
@@ -60,11 +62,11 @@ public class Compra {
         this.idRemedio = idRemedio;
     }
 
-    public String getDataCompra() {
+    public @NotBlank(message = "compra.dataCompra.notblank") LocalDateTime getDataCompra() {
         return dataCompra;
     }
 
-    public void setDataCompra(String dataCompra) {
+    public void setDataCompra(@NotBlank(message = "compra.dataCompra.notblank") LocalDateTime dataCompra) {
         this.dataCompra = dataCompra;
     }
 }

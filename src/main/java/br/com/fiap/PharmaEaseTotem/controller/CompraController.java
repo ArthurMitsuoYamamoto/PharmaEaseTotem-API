@@ -20,7 +20,7 @@ import br.com.fiap.PharmaEaseTotem.repository.CompraRepository;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/compras")
+@RequestMapping("compras")
 public class CompraController {
 
     private final CompraRepository compraRepository;
