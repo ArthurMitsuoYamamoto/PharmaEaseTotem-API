@@ -73,7 +73,7 @@ Aqui está a documentação dos endpoints da API para o projeto do totem farmac�
 ## Tarefas
 
 - [ ] CRUD de Clientes
-- [ ] CRUD de Consultas
+- [ ] CRUD de Compras
 - [ ] CRUD de Medicamentos
 
 
